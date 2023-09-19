@@ -1,0 +1,20 @@
+from aiogram.utils import executor
+from create_bot import dp
+from data_base import sqlite_db
+
+
+async def on_start(_):
+	print('Работаем')
+	sqlite_db.sql_start()
+
+qiwi_pub_token = '48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPy65tSwLWCfh5qLcDVCXdyVhA5xFGTSozUk2oSPryCJ9yHYkbpL9QFCdQa3iNGdv3qwZm4Uqs6m9iHMY8Zvy2t4Ho6Dc73yD7Bhz6Ssjue'
+qiwi_real_token ='eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6InZncnY0NC0wMCIsInVzZXJfaWQiOiI3OTYxMDcxMDgwMiIsInNlY3JldCI6ImEyNzc5Y2U4N2M1MWI4OWM5NjZkYTE0MDg2ZDkzMjZhM2I5MjViNTA5NTVjYTg3NGVkMjZlODQyOWQ0MDI0YTkifX0='
+from handlers import client, admin , others
+
+client.register_handlers_client(dp)
+admin.register_handlers_admin(dp)
+others.register_handlers_others(dp)
+
+
+executor.start_polling(dp,skip_updates=True, on_startup=on_start)
+
