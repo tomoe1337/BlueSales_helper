@@ -45,11 +45,11 @@
 
 Для остановки бота нажмите
 
-1. Linux
+### Linux
 
 ```Ctrl + C```
 
-2. MacOS
+### MacOS
 
 ```Control + C```
 
